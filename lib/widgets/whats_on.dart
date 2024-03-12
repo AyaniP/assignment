@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:assignment/constants.dart';
+import 'package:assignment/pages/movie_details_page.dart';
 
 class WhatIsOnSlider extends StatelessWidget {
   const WhatIsOnSlider({
-    super.key, required this.snapshot, //required this.snapshot,
+    super.key, required this.snapshot,
   });
 
   final AsyncSnapshot snapshot;
@@ -25,15 +26,27 @@ class WhatIsOnSlider extends StatelessWidget {
           autoPlayAnimationDuration: const Duration(seconds: 2),
         ),
         itemBuilder: (context, itemIndex, pageViewIndex){
-          return ClipRRect(
-            borderRadius: BorderRadius.circular(12),
-            child: SizedBox(
-              height: 300,
-              width: 200,
-              child: Image.network(
-                filterQuality: FilterQuality.high,
-                fit: BoxFit.cover,
-                '${Constants.imagePath}${snapshot.data[itemIndex].posterPath}',
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context, 
+                MaterialPageRoute(
+                  builder: (context) => MovieDetailsPage(
+                    movie: snapshot.data[itemIndex],
+                  ),
+                ),
+              );
+            },
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: SizedBox(
+                height: 300,
+                width: 200,
+                child: Image.network(
+                  filterQuality: FilterQuality.high,
+                  fit: BoxFit.cover,
+                  '${Constants.imagePath}${snapshot.data[itemIndex].posterPath}',
+                ),
               ),
             ),
           );

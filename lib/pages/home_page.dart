@@ -32,18 +32,6 @@ class HomePageState extends State<HomePage> {
     childrenFriendlyMovies = Api().getChildrenFriendlyMovies();
   }
 
-
-  double responsiveSpacing(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    double spacing;
-    if (screenWidth > 600) {
-      spacing = 64;
-    } else {
-      spacing = 32;
-    }
-    return spacing;
-  }
-
   @override
   Widget build (BuildContext context) {
     return Scaffold
@@ -62,10 +50,11 @@ class HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const SizedBox(height: 15),
               const Text(
                 'What is on at the cinema?', style: TextStyle(fontSize: 20)
               ),
-              SizedBox(height: responsiveSpacing(context)),
+              const SizedBox(height: 10),
               SizedBox(
                 child: FutureBuilder(
                   future: nowPlayingMovies,
@@ -88,11 +77,11 @@ class HomePageState extends State<HomePage> {
                 ),
               ),
               
-              
+              const SizedBox(height: 25),
               const Text(
                 'What is on TV tonight?', style: TextStyle(fontSize: 20)
               ),
-              SizedBox(height: responsiveSpacing(context)),
+              const SizedBox(height: 10),
               SizedBox(
                 child: FutureBuilder(
                   future: nowOnTV,
@@ -116,10 +105,10 @@ class HomePageState extends State<HomePage> {
               ),
               
               
-              SizedBox(height: responsiveSpacing(context)),
+              const SizedBox(height: 25),
               const Text('Best movies this year', style: TextStyle(fontSize: 20),
               ),
-              SizedBox(height: responsiveSpacing(context)),
+              const SizedBox(height: 8),
               SizedBox(
                 child: FutureBuilder(
                   future: bestMoviesThisYear,
@@ -142,10 +131,10 @@ class HomePageState extends State<HomePage> {
                 ),
               ),
               
-              SizedBox(height: responsiveSpacing(context)),
+              const SizedBox(height: 16),
               const Text('Highest grossing movies of all time', style: TextStyle(fontSize: 20),
               ),
-              SizedBox(height: responsiveSpacing(context)),
+              const SizedBox(height: 8),
               SizedBox(
                 child: FutureBuilder(
                   future: highestGrossingMovies,
@@ -168,10 +157,10 @@ class HomePageState extends State<HomePage> {
                 ),
               ),
 
-              SizedBox(height: responsiveSpacing(context)),
+              const SizedBox(height: 16),
               const Text('Children-friendly movies', style: TextStyle(fontSize: 20),
               ),
-              SizedBox(height: responsiveSpacing(context)),
+              const SizedBox(height: 8),
               SizedBox(
                 child: FutureBuilder(
                   future: childrenFriendlyMovies,

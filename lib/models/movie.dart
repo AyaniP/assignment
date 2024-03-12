@@ -1,12 +1,12 @@
 class Movie{
-  String? title;
-  String? backDropPath;
-  String? originalTitle;
-  String? overview;
-  String? posterPath;
-  double? popularity;
-  String? releaseDate;
-  double? voteAverage;
+  String title;
+  String backDropPath;
+  String originalTitle;
+  String overview;
+  String posterPath;
+  double popularity;
+  String releaseDate;
+  double voteAverage;
 
   Movie({
     required this.title,

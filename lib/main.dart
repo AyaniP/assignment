@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter',
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.grey,
+        scaffoldBackgroundColor: Colors.blueGrey,
         useMaterial3: true,
       ),
       home: const HomePage(),

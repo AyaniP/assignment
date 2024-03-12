@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:assignment/constants.dart';
+import 'package:assignment/pages/movie_details_page.dart';
 
 class MoviesSlider extends StatelessWidget {
   const MoviesSlider({
@@ -20,15 +21,27 @@ class MoviesSlider extends StatelessWidget {
         itemBuilder: (context, index){
           return Padding(
             padding: const EdgeInsets.all(8.0),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: SizedBox(
-                height: 200, 
-                width: 150,
-                child: Image.network(
-                  filterQuality: FilterQuality.high,
-                  fit: BoxFit.cover,
-                  '${Constants.imagePath}${snapshot.data![index].posterPath}'
+            child: GestureDetector(
+              onTap: () {
+                Navigator.push(
+                context, 
+                MaterialPageRoute(
+                  builder: (context) => MovieDetailsPage(
+                    movie: snapshot.data[index],
+                  ),
+                ),
+              );
+              },
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(8),
+                child: SizedBox(
+                  height: 200, 
+                  width: 150,
+                  child: Image.network(
+                    filterQuality: FilterQuality.high,
+                    fit: BoxFit.cover,
+                    '${Constants.imagePath}${snapshot.data![index].posterPath}'
+                  ),
                 ),
               ),
             ),

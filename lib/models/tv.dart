@@ -1,11 +1,11 @@
 class TV{
   String? backDropPath;
-  String? originalName;
-  String? overview;
-  String? posterPath;
-  double? popularity;
-  String? firstAirDate;
-  double? voteAverage;
+  String originalName;
+  String overview;
+  String posterPath;
+  double popularity;
+  String firstAirDate;
+  double voteAverage;
 
   TV({
     required this.backDropPath,
