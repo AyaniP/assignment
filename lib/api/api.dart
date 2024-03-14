@@ -1,6 +1,4 @@
-//import 'package:flutter/cupertino.dart';
 import 'dart:convert';
-
 import 'package:http/http.dart' as http;
 import 'package:assignment/constants.dart';
 import 'package:assignment/models/movie.dart';
@@ -13,6 +11,7 @@ class Api{
   static const String bestMoviesThisYearURL= 'https://api.themoviedb.org/3/discover/movie?api_key=${Constants.apiKey}&sort_by=popularity.desc&primary_release_year=2024';
   static const String highestGrossingMoviesURL= 'https://api.themoviedb.org/3/discover/movie?api_key=${Constants.apiKey}&sort_by=revenue.desc';
   static const String childrenFriendlyMoviesURL= 'https://api.themoviedb.org/3/discover/movie?api_key=${Constants.apiKey}&certification_country=US&certification=G';
+  static const String searchByTitleURL= 'https://api.themoviedb.org/3/search/multi?api_key=${Constants.apiKey}';
 
 
   Future<List<Movie>> getNowPlayingMovies() async{
@@ -83,6 +82,17 @@ class Api{
       throw Exception('Something happened');
     }
 
+  }
+
+  Future<List<dynamic>> getSearchByTitle(String query) async {
+    final response = await http.get(Uri.parse('$searchByTitleURL&query=$query'));
+    if (response.statusCode == 200) {
+      final decodedData = json.decode(response.body)['results'] as List;
+      final filteredData = decodedData.where((result) => result['media_type'] == 'movie' || result['media_type'] == 'tv').toList();
+      return filteredData;
+    } else {
+      throw Exception('Something happened');
+    }
   }
 }
 

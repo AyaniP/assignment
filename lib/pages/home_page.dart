@@ -6,6 +6,7 @@ import 'package:assignment/widgets/movies_slider.dart';
 import 'package:assignment/widgets/whats_on.dart';
 import 'package:assignment/widgets/whats_on_tv.dart';
 import 'package:assignment/pages/login_page.dart';
+import 'package:assignment/pages/search_by_title_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -57,6 +58,21 @@ class HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Padding(
+                padding: const EdgeInsets.all(8),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                    context, 
+                    MaterialPageRoute(builder: (context) => const SearchByTitlePage()));
+                  },
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.transparent),
+                  child: const Text(
+                    'Search By Title',
+                    style: TextStyle(fontSize: 15, color: Colors.black),
+                  ),
+                ),
+              ),
               const SizedBox(height: 15),
               const Text(
                 'What is on at the cinema?', style: TextStyle(fontSize: 20)

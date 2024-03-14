@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:assignment/widgets/text_field.dart';
 import 'package:assignment/widgets/login_signup_button.dart';
-import 'package:assignment/pages/home_page.dart';
+import 'package:assignment/pages/login_page.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -52,7 +52,7 @@ class SignUpPageState extends State<SignUpPage> {
                 loginSignupButton(context, false, () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const HomePage())
+                    MaterialPageRoute(builder: (context) => const LoginPage())
                   ); 
                 })
               ],

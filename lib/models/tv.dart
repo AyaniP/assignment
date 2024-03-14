@@ -1,6 +1,6 @@
 class TV{
   String? backDropPath;
-  String originalName;
+  String name;
   String overview;
   String posterPath;
   double popularity;
@@ -9,7 +9,7 @@ class TV{
 
   TV({
     required this.backDropPath,
-    required this.originalName,
+    required this.name,
     required this.overview,
     required this.posterPath,
     required this.popularity,
@@ -20,7 +20,7 @@ class TV{
   factory TV.fromJson(Map<String, dynamic> json){
     return TV(
     backDropPath: json["backdrop_path"], 
-    originalName: json["original_name"], 
+   name: json["name"], 
     overview: json["overview"], 
     posterPath: json["poster_path"], 
     popularity:json["popularity"],
