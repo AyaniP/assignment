@@ -5,6 +5,7 @@ import 'package:assignment/models/tv.dart';
 import 'package:assignment/widgets/movies_slider.dart';
 import 'package:assignment/widgets/whats_on.dart';
 import 'package:assignment/widgets/whats_on_tv.dart';
+import 'package:assignment/pages/login_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -34,13 +35,19 @@ class HomePageState extends State<HomePage> {
 
   @override
   Widget build (BuildContext context) {
+    Color color = const Color(0xFF0B1320);
     return Scaffold
     (
       appBar: AppBar
       (
-        backgroundColor: Colors.transparent,
+        backgroundColor: color,
         elevation: 0,
-        title: const Text('Movie App', style: TextStyle(fontSize: 25),), //asset later
+        title: Image.asset(
+          'images/FilmFlare (1).png',
+          fit: BoxFit.cover,
+          height: 250,
+          filterQuality: FilterQuality.high,
+        ),
         centerTitle: true,
       ),
       body: SingleChildScrollView(
@@ -186,6 +193,22 @@ class HomePageState extends State<HomePage> {
           ),
         ),
       ),
+
+      bottomNavigationBar: BottomAppBar(
+        color: color,
+        child: Padding(
+          padding: const EdgeInsets.all(8),
+          child: ElevatedButton(
+            child: Text('LOGOUT', style: TextStyle(color: Colors.indigo[900], fontWeight: FontWeight.bold),),
+            onPressed: () {
+              Navigator.push(
+                context, 
+                MaterialPageRoute(builder: (context) => const LoginPage())
+              );
+            },
+          )
+        ),
+      )
     );
   }
 }

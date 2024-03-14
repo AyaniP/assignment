@@ -1,6 +1,5 @@
 import 'package:assignment/constants.dart';
 import 'package:assignment/models/tv.dart';
-import 'package:assignment/widgets/back_button.dart';
 import 'package:flutter/material.dart';
 
 
@@ -16,7 +15,6 @@ class TVDetailsPage extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar.large(
-            leading: const BackBttn(),
             backgroundColor: Colors.transparent,
             expandedHeight: 525,
             pinned: true,
@@ -42,12 +40,12 @@ class TVDetailsPage extends StatelessWidget {
                 [
                   const Text(
                     'Overview', 
-                    style: TextStyle(fontSize: 20)
+                    style: TextStyle(fontSize: 20, color: Colors.black)
                   ),
                   const SizedBox(height: 16),
                   Text(
                     tv.overview,
-                    style: const TextStyle(fontSize: 20)
+                    style: const TextStyle(fontSize: 20, color: Colors.black)
                   ),
                   const SizedBox(height: 16),
                   SizedBox(
@@ -64,11 +62,11 @@ class TVDetailsPage extends StatelessWidget {
                             children: [
                               const Text(
                                 'First Air Date: ', 
-                                style: TextStyle(fontSize: 16),
+                                style: TextStyle(fontSize: 16, color: Colors.black),
                               ),
                               Text(
                                 tv.firstAirDate, 
-                                style: const TextStyle(fontSize: 16),
+                                style: const TextStyle(fontSize: 16, color: Colors.black),
                               ),
                             ],
                           ), 
@@ -83,7 +81,7 @@ class TVDetailsPage extends StatelessWidget {
                             children: [
                               const Text(
                                 'Rating: ', 
-                                style: TextStyle(fontSize: 16),
+                                style: TextStyle(fontSize: 16, color: Colors.black),
                               ),
                               const Icon(
                                 Icons.star, 
@@ -91,7 +89,7 @@ class TVDetailsPage extends StatelessWidget {
                               ),
                               Text(
                                 '${tv.voteAverage.toStringAsFixed(1)}/10',
-                                style: const TextStyle(fontSize: 16),
+                                style: const TextStyle(fontSize: 16, color: Colors.black),
                               ),
                             ],
                           ), 

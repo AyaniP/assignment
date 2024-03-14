@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:assignment/constants.dart';
 import 'package:assignment/models/movie.dart';
-import 'package:assignment/widgets/back_button.dart';
 
 class MovieDetailsPage extends StatelessWidget {
   const MovieDetailsPage({super.key, required this.movie});
@@ -14,7 +13,6 @@ class MovieDetailsPage extends StatelessWidget {
       body: CustomScrollView(
         slivers: [
           SliverAppBar.large(
-            leading: const BackBttn(),
             backgroundColor: Colors.transparent,
             expandedHeight: 525,
             pinned: true,
@@ -40,12 +38,12 @@ class MovieDetailsPage extends StatelessWidget {
                 [
                   const Text(
                     'Overview', 
-                    style: TextStyle(fontSize: 20)
+                    style: TextStyle(fontSize: 20, color: Colors.black)
                   ),
                   const SizedBox(height: 16),
                   Text(
                     movie.overview,
-                    style: const TextStyle(fontSize: 20)
+                    style: const TextStyle(fontSize: 20, color: Colors.black)
                   ),
                   const SizedBox(height: 16),
                   SizedBox(
@@ -62,11 +60,11 @@ class MovieDetailsPage extends StatelessWidget {
                             children: [
                               const Text(
                                 'Release date: ', 
-                                style: TextStyle(fontSize: 16),
+                                style: TextStyle(fontSize: 16, color: Colors.black),
                               ),
                               Text(
                                 movie.releaseDate, 
-                                style: const TextStyle(fontSize: 16),
+                                style: const TextStyle(fontSize: 16, color: Colors.black),
                               ),
                             ],
                           ), 
@@ -81,7 +79,7 @@ class MovieDetailsPage extends StatelessWidget {
                             children: [
                               const Text(
                                 'Rating: ', 
-                                style: TextStyle(fontSize: 16),
+                                style: TextStyle(fontSize: 16, color: Colors.black),
                               ),
                               const Icon(
                                 Icons.star, 
@@ -89,7 +87,7 @@ class MovieDetailsPage extends StatelessWidget {
                               ),
                               Text(
                                 '${movie.voteAverage.toStringAsFixed(1)}/10',
-                                style: const TextStyle(fontSize: 16),
+                                style: const TextStyle(fontSize: 16, color: Colors.black),
                               ),
                             ],
                           ), 
