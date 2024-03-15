@@ -19,6 +19,19 @@ class Movie{
     required this.voteAverage,
   });
 
+  Map<String, dynamic> toJson() {
+    return {
+      'title': title,
+      'backDropPath': backDropPath,
+      'originalTitle': originalTitle,
+      'overview': overview,
+      'posterPath': posterPath,
+      'popularity': popularity,
+      'releaseDate': releaseDate,
+      'voteAverage': voteAverage,
+    };
+  } 
+
   factory Movie.fromJson(Map<String, dynamic> json){
     return Movie(
     title: json["title"], 

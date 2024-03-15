@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:assignment/constants.dart';
 import 'package:assignment/models/movie.dart';
+import 'package:assignment/pages/watch_list_page.dart';
+import 'package:assignment/pages/watched_list_page.dart';
 
 class MovieDetailsPage extends StatelessWidget {
   const MovieDetailsPage({super.key, required this.movie});
@@ -94,7 +96,63 @@ class MovieDetailsPage extends StatelessWidget {
                         ),
                       ],
                     ),
-                  )
+                  ),
+
+                  SizedBox(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.all(0),
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.black),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child:  Row(
+                            children: [
+                              const Icon(Icons.bookmarks_outlined),
+                              TextButton(
+                                onPressed: () {
+                                  Data1.watchListMovies.add(movie);
+                                  Data1.saveData();
+                                  
+                                }, 
+                                
+                                child: const Text(
+                                  'Add to Watchlist ', 
+                                  style: TextStyle(fontSize: 14, color: Colors.black),
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        
+                        Container(
+                            padding: const EdgeInsets.all(0),
+                            decoration: BoxDecoration(
+                              border: Border.all(color: Colors.black),
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                            child: Row(
+                            children: [
+                              const Icon(Icons.bookmarks_rounded),
+                              TextButton(
+                                onPressed: () {
+                                  Data2.watchedListMovies.add(movie);
+                                  Data2.saveData();
+                                }, 
+                                child: const Text(
+                                  'Add to Watched List ', 
+                                  style: TextStyle(fontSize: 14, color: Colors.black),
+                                ),
+                              )
+                            ],
+                          ),
+                        ) 
+                         
+                      ],
+                    ),
+                  ) 
                 ],
               ),
             ),

@@ -7,6 +7,8 @@ import 'package:assignment/widgets/whats_on.dart';
 import 'package:assignment/widgets/whats_on_tv.dart';
 import 'package:assignment/pages/login_page.dart';
 import 'package:assignment/pages/search_by_title_page.dart';
+import 'package:assignment/pages/watch_list_page.dart';
+import 'package:assignment/pages/watched_list_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -69,6 +71,38 @@ class HomePageState extends State<HomePage> {
                   style: ElevatedButton.styleFrom(backgroundColor: Colors.transparent),
                   child: const Text(
                     'Search By Title',
+                    style: TextStyle(fontSize: 15, color: Colors.black),
+                  ),
+                ),
+              ),
+
+              Padding(
+                padding: const EdgeInsets.all(8),
+                child: ElevatedButton(
+                  onPressed: () {
+                     Navigator.push(
+                     context, 
+                     MaterialPageRoute(builder: (context) => const WatchListPage()));
+                  },
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.transparent),
+                  child: const Text(
+                    'Watch List',
+                    style: TextStyle(fontSize: 15, color: Colors.black),
+                  ),
+                ),
+              ),
+
+              Padding(
+                padding: const EdgeInsets.all(8),
+                child: ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                    context, 
+                    MaterialPageRoute(builder: (context) => const WatchedListPage()));
+                  },
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.transparent),
+                  child: const Text(
+                    'Watched List',
                     style: TextStyle(fontSize: 15, color: Colors.black),
                   ),
                 ),
